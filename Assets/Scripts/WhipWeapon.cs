@@ -8,14 +8,31 @@ using UnityEngine;
 /// </summary>
 public class Whip : MonoBehaviour
 {
+    /// <summary>
+    /// Интервал атаки
+    /// </summary>
     [SerializeField] float timeToAttack = 4f;
     float timer = 0f;
 
+    /// <summary>
+    /// Левый и правый спрайт атаки
+    /// </summary>
     [SerializeField] GameObject leftWhipObject;
     [SerializeField] GameObject rightWhipObject;
     
+    /// <summary>
+    /// Движение игрока
+    /// </summary>
     PlayerMove playerMove;
+
+    /// <summary>
+    /// Размер атаки
+    /// </summary>
     [SerializeField] Vector2 whipAttackSize = new Vector2(4f, 2f);
+
+    /// <summary>
+    /// Урон оружия
+    /// </summary>
     [SerializeField] int whipDamage = 1;
 
     /// <summary>
@@ -25,6 +42,9 @@ public class Whip : MonoBehaviour
         playerMove = GetComponentInParent<PlayerMove>();
     }
 
+    /// <summary>
+    /// Обновление таймера каждый кадр
+    /// </summary>
     private void Update()
     {   
         // Отсчет таймера

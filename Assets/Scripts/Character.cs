@@ -7,9 +7,19 @@ using UnityEngine;
 /// </summary>
 public class Character : MonoBehaviour
 {
-    // Здоровье
+    /// <summary>
+    /// Максимальное здоровье
+    /// </summary>
     public int maxHP = 1000;
+
+    /// <summary>
+    /// Текущее здоровье
+    /// </summary>
     public int currentHP = 1000;
+
+    /// <summary>
+    /// Объект ХП-бара
+    /// </summary>
     [SerializeField] StatusBar hpBar;
 
     private void Start(){

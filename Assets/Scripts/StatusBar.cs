@@ -7,7 +7,9 @@ using UnityEngine;
 /// </summary>
 public class StatusBar : MonoBehaviour
 {
-    // Объект статус-бара
+    /// <summary>
+    /// Объект статус-бара
+    /// </summary>
     [SerializeField] Transform bar;
 
     /// <summary>

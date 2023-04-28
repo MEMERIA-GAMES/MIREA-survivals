@@ -7,18 +7,32 @@ using UnityEngine;
 /// </summary>
 public class Enemy : MonoBehaviour, IDamagable
 {
-    // Координаты цели
+    /// <summary>
+    /// Координаты цели
+    /// </summary>
     Transform targetDestination;
-    // Цель
+    
+    /// <summary>
+    /// Цель
+    /// </summary>
     GameObject targetGameobject;
     Character targetCharacter;
-    // Скорость
+    
+    /// <summary>
+    /// Величина скорости
+    /// </summary>
     [SerializeField] float speed;
 
     Rigidbody2D rgdbd2d;
     
-    // Здоровье и урон
+    /// <summary>
+    /// Здоровье
+    /// </summary>
     [SerializeField] int hp = 999;
+    
+    /// <summary>
+    /// Урон
+    /// </summary>
     [SerializeField] int damage = 1;
 
     private void Awake(){

@@ -8,14 +8,29 @@ using UnityEngine;
 /// </summary>
 public class EnemiesManager : MonoBehaviour
 {
-    // Класс врага
+    /// <summary>
+    /// Класс врага
+    /// </summary>
     [SerializeField] GameObject enemy;
-    // Область спавна
+    
+    /// <summary>
+    /// Область спавна
+    /// </summary>
     [SerializeField] Vector2 spawnArea;
-    // Таймер спавна
+    
+    /// <summary>
+    /// Таймер спавна
+    /// </summary>
     [SerializeField] float spawnTimer;
-    // Цель врагов
+    
+    /// <summary>
+    /// Цель врагов
+    /// </summary>
     [SerializeField] GameObject player;
+    
+    /// <summary>
+    /// Таймер
+    /// </summary>
     float timer;
     
     /// <summary>

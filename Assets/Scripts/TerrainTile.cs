@@ -7,7 +7,9 @@ using UnityEngine;
 /// </summary>
 public class TerrainTile : MonoBehaviour
 {
-    // Позиция тайла
+    /// <summary>
+    /// Позиция тайла
+    /// </summary>
     [SerializeField] Vector2Int tilePosition;
 
     /// <summary>

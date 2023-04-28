@@ -7,7 +7,9 @@ using UnityEngine;
 /// </summary>
 public class DisableAfterTime : MonoBehaviour
 {
-    // Время дизейбла
+    /// <summary>
+    /// Время дизейбла
+    /// </summary>
     [SerializeField] float timeToDisable = 0.8f;
     float timer;
 

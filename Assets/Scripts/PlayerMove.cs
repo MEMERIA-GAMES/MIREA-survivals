@@ -9,16 +9,25 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     Rigidbody2D rgbd2d;
-    // Вектор скорости
+    /// <summary>
+    /// Вектор скорости
+    /// </summary>
     [HideInInspector] public Vector3 movementVector;
-    // Последние сохраненные показатели скорости
+
+    /// <summary>
+    /// Последние сохраненные показатели скорости
+    /// </summary>
     [HideInInspector] public float lastHorizontalVector;
     [HideInInspector] public float lastVerticalVector;
 
-    // Скорость
+    /// <summary>
+    /// Величина скорости
+    /// </summary>
     [SerializeField] float speed = 3f;
 
-    // Аниматор
+    /// <summary>
+    /// Объект аниматора
+    /// </summary>
     Animate animate;
 
     private void Awake()

@@ -8,26 +8,39 @@ using UnityEngine;
 /// </summary>
 public class WorldScrolling : MonoBehaviour
 {
-    // Игрок
+    /// <summary>
+    /// Положение игрока
+    /// </summary>
     [SerializeField] Transform playerTransform;
     Vector2Int currentTilePosition = new Vector2Int(0, 0);
-    // Тайл, на котором стоит игрок
+    
+    /// <summary>
+    /// Тайл, на котором стоит игрок
+    /// </summary>
     [SerializeField] Vector2Int playerTilePosition;
-    // Тайл, на котором стоит игрок
     Vector2Int onTileGridPlayerPosition;
-    // Размер тайла
+    
+    /// <summary>
+    /// Размер тайла
+    /// </summary>
     [SerializeField] float tileSize = 20f;
-    // Матрица тайлов
+    
+    /// <summary>
+    /// Матрица тайлов
+    /// </summary>
     GameObject[,] terrainTiles;
 
-    // Количество тайлов по горизонтали и вертикали
+    /// <summary>
+    /// Количество тайлов
+    /// </summary>
     [SerializeField] int terrainTileHorizontalCount;
     [SerializeField] int terrainTileVerticalCount;
 
-    // Сколько тайлов находятся в области видимости одновременно
+    /// <summary>
+    /// Сколько тайлов находятся в области видимости одновременно
+    /// </summary>
     [SerializeField] int fieldOfVisionHeight = 3;
     [SerializeField] int fieldOfVisionWidth = 3;
-
 
     /// <summary>
     /// Добавление нового тайла в матрицу
@@ -71,6 +84,12 @@ public class WorldScrolling : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Рассчет новой позиции тайла
+    /// </summary>
+    /// <param name="currentValue">Текущая позиция</param>
+    /// <param name="horizontal">Перемещение по горизонтали (true/false)</param>
+    /// <returns>Новое положение тайла</returns>
     private int CalculatePositionOnAxis(float currentValue, bool horizontal){
         if (horizontal){
             if (currentValue >= 0){
