@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Класс аниматора
+/// </summary>
 public class Animate : MonoBehaviour
 {
     Animator animator;

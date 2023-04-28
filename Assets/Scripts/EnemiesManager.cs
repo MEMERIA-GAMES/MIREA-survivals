@@ -2,14 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// Класс генерации врагов
+/// </summary>
 public class EnemiesManager : MonoBehaviour
 {
+    // Класс врага
     [SerializeField] GameObject enemy;
+    // Область спавна
     [SerializeField] Vector2 spawnArea;
+    // Таймер спавна
     [SerializeField] float spawnTimer;
+    // Цель врагов
     [SerializeField] GameObject player;
     float timer;
-
+    
+    /// <summary>
+    /// Каждый кадр таймер уменьшается. Когда он дойдет до нуля, он обновиться, и заспавниться новый враг
+    /// </summary>
     private void Update(){
         timer -= Time.deltaTime;
         if (timer < 0f){
@@ -18,6 +29,9 @@ public class EnemiesManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Спавн врага. Спавнит врага в случайном месте по периметру spawnArea
+    /// </summary>
     private void SpawnEnemy(){
         Vector3 position = GenerateRandomPosition();
         position += player.transform.position;
@@ -28,6 +42,10 @@ public class EnemiesManager : MonoBehaviour
         newEnemy.transform.parent = transform;
     }
 
+    /// <summary>
+    /// Генерирует место появления врага.
+    /// </summary>
+    /// <returns>Координаты врага</returns>
     private Vector3 GenerateRandomPosition(){
         Vector3 position = new Vector3();
         float fvalue = UnityEngine.Random.value > 0.5f ? -1f : 1f;

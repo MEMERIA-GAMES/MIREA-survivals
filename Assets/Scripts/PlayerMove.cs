@@ -3,15 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
+/// <summary>
+/// Класс, управляющий передвижением игрока
+/// </summary>
 public class PlayerMove : MonoBehaviour
 {
     Rigidbody2D rgbd2d;
+    // Вектор скорости
     [HideInInspector] public Vector3 movementVector;
+    // Последние сохраненные показатели скорости
     [HideInInspector] public float lastHorizontalVector;
     [HideInInspector] public float lastVerticalVector;
 
+    // Скорость
     [SerializeField] float speed = 3f;
 
+    // Аниматор
     Animate animate;
 
     private void Awake()
@@ -21,7 +28,9 @@ public class PlayerMove : MonoBehaviour
         animate = GetComponent<Animate>();
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Каждый кадр считываем с устройсва ввода направление движения.
+    /// </summary>
     void Update()
     {
         movementVector.x = Input.GetAxisRaw("Horizontal");
@@ -34,8 +43,10 @@ public class PlayerMove : MonoBehaviour
             lastVerticalVector = movementVector.y;
         }
 
+        // Передаем направление в аниматор для настройки подходящей анимации
         animate.horizontal = movementVector.x;
 
+        // умножаем вектор направления на скорость
         movementVector *= speed;
 
         rgbd2d.velocity = movementVector;
