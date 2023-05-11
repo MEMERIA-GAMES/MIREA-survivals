@@ -37,13 +37,17 @@ public class Character : MonoBehaviour
     public void TakeDamage(int damage){
         //Debug.Log("Take damage");
         currentHP -= damage;
-        coinsCollected += 1;
-        ui.coinsCollectedText.text = "COINS: " + coinsCollected.ToString();
 
         if (currentHP <= 0){
             Debug.Log("Character is dead");
         }
         hpBar.SetState(currentHP, maxHP);
+    }
+
+    public void gainCoins(int coinCount)
+    {
+        coinsCollected += coinCount;
+        ui.coinsCollectedText.text = "COINS: " + coinsCollected.ToString();
     }
 
     /// <summary>

@@ -35,6 +35,8 @@ public class Enemy : MonoBehaviour, IDamagable
     /// </summary>
     [SerializeField] int damage = 1;
 
+    [SerializeField] int coinWorth = 1;
+
     private void Awake(){
         rgdbd2d = GetComponent<Rigidbody2D>();
     }
@@ -86,6 +88,7 @@ public class Enemy : MonoBehaviour, IDamagable
 
         if (hp <= 0){
             Destroy(gameObject);
+            targetCharacter.gainCoins(coinWorth);
         }
     }
 }
