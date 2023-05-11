@@ -173,9 +173,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  hp: 10
+  hp: 3
   damage: 1
   coinWorth: 1
+  dropObj: {fileID: 3407059006219355343, guid: b05cf8fff3092134f8950985ec1bfb83, type: 3}
 --- !u!95 &-230287498991816906
 Animator:
   serializedVersion: 5
