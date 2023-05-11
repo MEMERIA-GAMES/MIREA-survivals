@@ -3,15 +3,21 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
+
 
 public class UI : MonoBehaviour
 {
     public Canvas pauseCanvas;
     public Canvas menuCanvas;
     public Canvas gameOverCanvas;
+    public Saver saver;
+
     public Character character;
-    public bool gameIsOn = false;
     public AudioSource gameBGM;
+    public TextMeshProUGUI coinsCollectedText;
+    public TextMeshProUGUI coinsTotalText;
+    public bool gameIsOn = false;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +27,9 @@ public class UI : MonoBehaviour
         gameOverCanvas.enabled = false;
         gameBGM.mute = true;
         Time.timeScale = 0f;
-    }
+        saver.loadData();
+        coinsTotalText.text = "COINS: " + saver.getCoins().ToString();
+}
 
     // Update is called once per frame
     void Update()
@@ -59,13 +67,10 @@ public class UI : MonoBehaviour
         gameBGM.mute = false;
     }
 
-    public void Restart()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
     public void ToMenu()
     {
+        character.saveProgress();
+        saver.saveData();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -79,6 +84,8 @@ public class UI : MonoBehaviour
 
     public void Exit()
     {
+        character.saveProgress();
+        saver.saveData();
         Application.Quit();
     }
 }

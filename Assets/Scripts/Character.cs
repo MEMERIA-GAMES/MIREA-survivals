@@ -17,6 +17,9 @@ public class Character : MonoBehaviour
     /// </summary>
     public int currentHP = 1000;
 
+    public Saver saver;
+    public UI ui;
+    public int coinsCollected = 0;
     /// <summary>
     /// Объект ХП-бара
     /// </summary>
@@ -24,6 +27,7 @@ public class Character : MonoBehaviour
 
     private void Start(){
         hpBar.SetState(currentHP, maxHP);
+        ui.coinsCollectedText.text = "COINS: " + coinsCollected.ToString();
     }
 
     /// <summary>
@@ -33,8 +37,10 @@ public class Character : MonoBehaviour
     public void TakeDamage(int damage){
         //Debug.Log("Take damage");
         currentHP -= damage;
+        coinsCollected += 1;
+        ui.coinsCollectedText.text = "COINS: " + coinsCollected.ToString();
 
-        if(currentHP <= 0){
+        if (currentHP <= 0){
             Debug.Log("Character is dead");
         }
         hpBar.SetState(currentHP, maxHP);
@@ -52,5 +58,11 @@ public class Character : MonoBehaviour
             currentHP = maxHP;
         }
         hpBar.SetState(currentHP, maxHP);
+    }
+
+    public void saveProgress()
+    {
+        saver.addCoins(coinsCollected);
+        saver.saveData();
     }
 }
