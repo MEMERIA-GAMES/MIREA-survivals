@@ -98,6 +98,8 @@ public class Enemy : MonoBehaviour, IDamagable
                 drop.transform.position = gameObject.transform.position;
                 //drop.transform.parent = transform;
             }
+            if (targetCharacter == null)
+                targetCharacter = targetGameobject.GetComponent<Character>();
             targetCharacter.gainCoins(coinWorth);
             Destroy(gameObject);
         }
