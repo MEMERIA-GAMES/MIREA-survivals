@@ -9,52 +9,45 @@ using TMPro;
 public class UI : MonoBehaviour
 {
     public Canvas pauseCanvas;
-    public Canvas menuCanvas;
     public Canvas gameOverCanvas;
     public Saver saver;
 
     public Character character;
     public AudioSource gameBGM;
     public TextMeshProUGUI coinsCollectedText;
-    public TextMeshProUGUI coinsTotalText;
-    public bool gameIsOn = false;
+    public string gameScene = "Game";
+    public string menuScene = "Menu";
 
     // Start is called before the first frame update
     void Start()
     {
-        menuCanvas.enabled = true;
         pauseCanvas.enabled = false;
         gameOverCanvas.enabled = false;
-        gameBGM.mute = true;
-        Time.timeScale = 0f;
+        gameBGM.mute = false;
         saver.loadData();
-        coinsTotalText.text = "COINS: " + saver.getCoins().ToString();
 }
 
     // Update is called once per frame
     void Update()
     {
-        if (gameIsOn)
+        if (character.currentHP <= 0)
         {
-            if (character.currentHP <= 0)
+            Time.timeScale = 0f;
+            gameOverCanvas.enabled = true;
+            gameBGM.mute = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            pauseCanvas.enabled = !pauseCanvas.enabled;
+            if (pauseCanvas.enabled)
             {
-                gameIsOn = false;
                 Time.timeScale = 0f;
-                gameOverCanvas.enabled = true;
                 gameBGM.mute = true;
             }
-            else if (Input.GetKeyDown(KeyCode.Escape))
+            else
             {
-                pauseCanvas.enabled = !pauseCanvas.enabled;
-                if (pauseCanvas.enabled)
-                {
-                    Time.timeScale = 0f;
-                    gameBGM.mute = true;
-                }
-                else
-                {
-                    Time.timeScale = 1f;
-                }
+                Time.timeScale = 1f;
+                gameBGM.mute = false;
             }
         }
     }
@@ -62,24 +55,22 @@ public class UI : MonoBehaviour
     public void Resume()
     {
         pauseCanvas.enabled = false;
-        Time.timeScale = 1f;
-        gameIsOn = true;
         gameBGM.mute = false;
+        Time.timeScale = 1f;
     }
 
     public void ToMenu()
     {
         character.saveProgress();
         saver.saveData();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(menuScene);
     }
 
-    public void Play()
+    public void Restart()
     {
-        Time.timeScale = 1f;
-        menuCanvas.enabled = false;
-        gameIsOn = true;
-        gameBGM.mute = false;
+        character.saveProgress();
+        saver.saveData();
+        SceneManager.LoadScene(gameScene);
     }
 
     public void Exit()
