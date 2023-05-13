@@ -10,6 +10,8 @@ public class MenuUI : MonoBehaviour
     public Saver saver;
     public TextMeshProUGUI coinsTotalText;
     public string gameScene = "Game";
+    public Canvas menuCanvas;
+    public Canvas shopCanvas;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +19,8 @@ public class MenuUI : MonoBehaviour
        Debug.Log("Menu is loading...");
        saver.loadData();
        coinsTotalText.text = "COINS: " + saver.getCoins().ToString();
+       menuCanvas.enabled = true;
+       shopCanvas.enabled = false;
     }
 
     // Update is called once per frame
@@ -34,5 +38,11 @@ public class MenuUI : MonoBehaviour
     {
         saver.saveData();
         Application.Quit();
+    }
+
+    public void ToShop()
+    {
+        menuCanvas.enabled = false;
+        shopCanvas.enabled = true;
     }
 }
