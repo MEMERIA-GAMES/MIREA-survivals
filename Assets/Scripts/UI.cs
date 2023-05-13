@@ -25,7 +25,8 @@ public class UI : MonoBehaviour
         gameOverCanvas.enabled = false;
         gameBGM.mute = false;
         saver.loadData();
-}
+        Time.timeScale = 1f;
+    }
 
     // Update is called once per frame
     void Update()

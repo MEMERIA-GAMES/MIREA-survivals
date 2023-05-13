@@ -35,13 +35,16 @@ public class Saver : MonoBehaviour
     {
         if (File.Exists(Application.persistentDataPath + "/MySaveData.dat"))
         {
+            DateTime startTime = DateTime.Now; 
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath
               + "/MySaveData.dat", FileMode.Open);
             Data data = (Data)bf.Deserialize(file);
             file.Close();
             this.coins = data.coins;
-            Debug.Log("Game data loaded!");
+            DateTime endTime = DateTime.Now;
+            TimeSpan duration = endTime - startTime;
+            Debug.Log($"Game data loaded in {duration.TotalSeconds}s!");
         }
         else
         {
