@@ -17,8 +17,8 @@ public class Whip : MonoBehaviour
     /// <summary>
     /// Левый и правый спрайт атаки
     /// </summary>
-    [SerializeField] GameObject leftWhipObject;
-    [SerializeField] GameObject rightWhipObject;
+    [SerializeField] GameObject leftWeaponObject;
+    [SerializeField] GameObject rightWeaponObject;
     
     /// <summary>
     /// Движение игрока
@@ -64,12 +64,12 @@ public class Whip : MonoBehaviour
         timer = timeToAttack;
         // Расчет анимации атаки
         if(playerMove.lastHorizontalVector > 0){
-            rightWhipObject.SetActive(true);
-            Collider2D[] colliders = Physics2D.OverlapBoxAll(rightWhipObject.transform.position, whipAttackSize, 0f);
+            rightWeaponObject.SetActive(true);
+            Collider2D[] colliders = Physics2D.OverlapBoxAll(rightWeaponObject.transform.position, whipAttackSize, 0f);
             ApplyDamage(colliders);
         }else{
-            leftWhipObject.SetActive(true);
-            Collider2D[] colliders = Physics2D.OverlapBoxAll(leftWhipObject.transform.position, whipAttackSize, 0f);
+            leftWeaponObject.SetActive(true);
+            Collider2D[] colliders = Physics2D.OverlapBoxAll(leftWeaponObject.transform.position, whipAttackSize, 0f);
             ApplyDamage(colliders);
         }
     }

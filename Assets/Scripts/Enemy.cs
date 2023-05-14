@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour, IDamagable
     }
 
     /// <summary>
-    /// Перемещение враша в сторону цели
+    /// Перемещение врага в сторону цели
     /// </summary>
     private void FixedUpdate(){
         Vector3 direction = (targetDestination.position - transform.position).normalized;
