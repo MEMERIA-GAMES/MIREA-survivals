@@ -8,16 +8,16 @@ using UnityEngine;
 public class TerrainTile : MonoBehaviour
 {
     /// <summary>
-    /// Позиция тайла
+    /// Позиция тайла в сетке
     /// </summary>
     [SerializeField] Vector2Int tilePosition;
 
     /// <summary>
-    /// На старте добавляем тайл в матрицу тайлов в WorldScrolling
+    /// На старте добавляем тайл в сетку тайлов в WorldScrolling
     /// </summary>
     void Start()
     {
         GetComponentInParent<WorldScrolling>().Add(gameObject, tilePosition);
-        transform.position = new Vector3(-100, -100, 0);
+        //transform.position = new Vector3(-100, -100, 0);
     }
 }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4454572197495710381}
   - component: {fileID: 6675871873491231966}
   m_Layer: 0
-  m_Name: kot_2_0
+  m_Name: kot_4_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5955385304026770025
 SpriteRenderer:
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -269634410, guid: 5d6780033d69bd047b6f05344e64b232, type: 3}
+  m_Sprite: {fileID: -424232136, guid: 8fd83aad87e924247a33f6936a8f3a9d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 3681883824228822129}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0f4e6011fddb7434b84abe50ca4ee31c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 97115071ee54c44478de39f0d02f9726, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  hp: 10
+  hp: 15
   damage: 1
   coinWorth: 1
   dropObj: {fileID: 3407059006219355343, guid: b05cf8fff3092134f8950985ec1bfb83, type: 3}

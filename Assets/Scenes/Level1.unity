@@ -1730,7 +1730,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03e86ce2b066c2d4cbe8c8973e4d4b1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 3681883824228822129, guid: f1069835ec1b8bc40921717543c6b6af, type: 3}
+  enemyList:
+  - {fileID: 3681883824228822129, guid: f1069835ec1b8bc40921717543c6b6af, type: 3}
+  - {fileID: 3681883824228822129, guid: c53a8644db93a67479762988cf7690ee, type: 3}
+  - {fileID: 3681883824228822129, guid: ce0eecfe25c9c8f4ba930af373158b15, type: 3}
+  - {fileID: 3681883824228822129, guid: 6e0fb101b0efcfa47839b4318d5f4f66, type: 3}
   spawnArea: {x: 10, y: 8}
   spawnTimer: 2
   player: {fileID: 2142341742}
@@ -2240,8 +2244,8 @@ MonoBehaviour:
   tileSize: 20
   terrainTileHorizontalCount: 3
   terrainTileVerticalCount: 3
-  fieldOfVisionHeight: 3
   fieldOfVisionWidth: 3
+  fieldOfVisionHeight: 3
 --- !u!4 &753831420
 Transform:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ public class EnemiesManager : MonoBehaviour
     /// <summary>
     /// Класс врага
     /// </summary>
-    [SerializeField] GameObject enemy;
+    [SerializeField] List<GameObject> enemyList;
     
     /// <summary>
     /// Область спавна
@@ -51,7 +51,8 @@ public class EnemiesManager : MonoBehaviour
         Vector3 position = GenerateRandomPosition();
         position += player.transform.position;
 
-        GameObject newEnemy = Instantiate(enemy);
+        int enemyIndex = Random.Range(0, enemyList.Count);
+        GameObject newEnemy = Instantiate(enemyList[enemyIndex]);
         newEnemy.transform.position = position;
         newEnemy.GetComponent<Enemy>().SetTarget(player);
         newEnemy.transform.parent = transform;

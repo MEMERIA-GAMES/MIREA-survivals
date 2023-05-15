@@ -9,16 +9,6 @@ using UnityEngine;
 public class WorldScrolling : MonoBehaviour
 {
     /// <summary>
-    /// Разрешение на бесконечное вертикальное перемещение
-    /// </summary>
-    public bool verticalMoveAccept = true;
-
-    /// <summary>
-    /// Разрешение на бесконечное горизонтальное перемещение
-    /// </summary>
-    public bool horizontalMoveAccept = true;
-
-    /// <summary>
     /// Положение игрока
     /// </summary>
     [SerializeField] Transform playerTransform;
@@ -49,8 +39,8 @@ public class WorldScrolling : MonoBehaviour
     /// <summary>
     /// Сколько тайлов находятся в области видимости одновременно
     /// </summary>
-    [SerializeField] int fieldOfVisionHeight = 3;
     [SerializeField] int fieldOfVisionWidth = 3;
+    [SerializeField] int fieldOfVisionHeight = 3;
 
     /// <summary>
     /// Добавление нового тайла в матрицу
