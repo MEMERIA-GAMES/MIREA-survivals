@@ -57,7 +57,7 @@ public class Shop : MonoBehaviour
 
     public void UpgradeWeapon()
     {
-        saver.addCoins(saver.getWeaponCost(weaponLvl));
+        saver.removeCoins(saver.getWeaponCost(weaponLvl));
         saver.upgradeWeapon();
         UpdateWeaponInfo();
     }
@@ -83,6 +83,14 @@ public class Shop : MonoBehaviour
         buyCharacterButton.gameObject.SetActive(currentCharacterCost <= coins && !purchasedCharacterIds.Contains(currentCharacterId));
         coinsTotalText.text = $"ÌÎÍÅÒÛ: {coins}";
         characterStatsText.text = $"ÇÄÎÐÎÂÜÅ {saver.getHealth(currentCharacterId)}\nÑÊÎÐÎÑÒÜ {saver.getSpeed(currentCharacterId)}";
+        if (currentCharacterId == 1)
+        {
+            characterImage.color = new Color(0.7f, 0.7f, 0, 1);
+        }
+        else
+        {
+            characterImage.color = new Color(1, 1, 1, 1);
+        }
     }
 
     public void BuyCharacter()

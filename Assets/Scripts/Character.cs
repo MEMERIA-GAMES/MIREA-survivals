@@ -21,6 +21,7 @@ public class Character : MonoBehaviour
     public UI ui;
     public int coinsCollected = 0;
     public int characterId;
+    public SpriteRenderer sprite;
     /// <summary>
     /// Объект ХП-бара
     /// </summary>
@@ -28,10 +29,16 @@ public class Character : MonoBehaviour
 
     private void Start(){
         hpBar.SetState(currentHP, maxHP);
-        ui.coinsCollectedText.text = "COINS: " + coinsCollected.ToString();
+        ui.coinsCollectedText.text = "МОНЕТЫ: " + coinsCollected.ToString();
         characterId = saver.getSelectedCharacterId();
+        if (characterId == 1)
+        {
+            sprite.color = new Color(0.7f, 0.7f, 0, 1);
+
+        }
         maxHP = saver.getHealth(characterId);
         currentHP = maxHP;
+        //saver.addCoins(1000);
 
     }
 
