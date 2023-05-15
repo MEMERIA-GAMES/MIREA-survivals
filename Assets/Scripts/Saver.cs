@@ -141,7 +141,7 @@ public class Saver : MonoBehaviour
 
     public int getHealth(int characterId)
     {
-        return (characterId + 1) * 10;
+        return (characterId + 1) * 100;
     }
 
     public int getCharacterCost(int characterId)

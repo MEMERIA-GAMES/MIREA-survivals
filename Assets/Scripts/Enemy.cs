@@ -90,8 +90,8 @@ public class Enemy : MonoBehaviour, IDamagable
         hp -= damage;
 
         if (hp <= 0){
-            //int isDrop = Random.Range(0, 1);
-            int isDrop = 1;
+            int isDrop = Random.Range(0, 1);
+            //int isDrop = 1;
             if (isDrop == 1)
             {
                 GameObject drop = Instantiate(dropObj);

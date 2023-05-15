@@ -10,16 +10,17 @@ public class Character : MonoBehaviour
     /// <summary>
     /// Максимальное здоровье
     /// </summary>
-    public int maxHP = 1000;
+    public int maxHP;
 
     /// <summary>
     /// Текущее здоровье
     /// </summary>
-    public int currentHP = 1000;
+    public int currentHP;
 
     public Saver saver;
     public UI ui;
     public int coinsCollected = 0;
+    public int characterId;
     /// <summary>
     /// Объект ХП-бара
     /// </summary>
@@ -28,6 +29,10 @@ public class Character : MonoBehaviour
     private void Start(){
         hpBar.SetState(currentHP, maxHP);
         ui.coinsCollectedText.text = "COINS: " + coinsCollected.ToString();
+        characterId = saver.getSelectedCharacterId();
+        maxHP = saver.getHealth(characterId);
+        currentHP = maxHP;
+
     }
 
     /// <summary>
