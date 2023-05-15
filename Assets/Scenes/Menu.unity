@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 67732200}
   - component: {fileID: 67732199}
   m_Layer: 5
-  m_Name: PlayButton
+  m_Name: Level1Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -209,7 +209,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 731961772}
         m_TargetAssemblyTypeName: MenuUI, Assembly-CSharp
-        m_MethodName: Play
+        m_MethodName: PlayLevel1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1497,7 +1497,7 @@ GameObject:
   - component: {fileID: 459477832}
   - component: {fileID: 459477831}
   m_Layer: 5
-  m_Name: ShopButton
+  m_Name: Level2Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1570,7 +1570,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 731961772}
         m_TargetAssemblyTypeName: MenuUI, Assembly-CSharp
-        m_MethodName: ToShop
+        m_MethodName: PlayLevel2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2262,7 +2262,7 @@ GameObject:
   - component: {fileID: 656268267}
   - component: {fileID: 656268266}
   m_Layer: 5
-  m_Name: ExitButton
+  m_Name: Level3Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2335,7 +2335,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 731961772}
         m_TargetAssemblyTypeName: MenuUI, Assembly-CSharp
-        m_MethodName: Exit
+        m_MethodName: PlayLevel3
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2688,9 +2688,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saver: {fileID: 731961777}
   coinsTotalText: {fileID: 1638355652}
-  gameScene: Game
+  gameSceneName:
+  - Level1
+  - Level2
+  - Level3
   menuCanvas: {fileID: 234562605}
   shopCanvas: {fileID: 595072742}
+  levelSelectCanvas: {fileID: 1542269800}
 --- !u!114 &731961774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5382,7 +5386,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 731961772}
         m_TargetAssemblyTypeName: MenuUI, Assembly-CSharp
-        m_MethodName: Play
+        m_MethodName: ToLevelSelections
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

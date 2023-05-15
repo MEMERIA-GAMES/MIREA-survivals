@@ -9,6 +9,16 @@ using UnityEngine;
 public class WorldScrolling : MonoBehaviour
 {
     /// <summary>
+    /// Разрешение на бесконечное вертикальное перемещение
+    /// </summary>
+    public bool verticalMoveAccept = true;
+
+    /// <summary>
+    /// Разрешение на бесконечное горизонтальное перемещение
+    /// </summary>
+    public bool horizontalMoveAccept = true;
+
+    /// <summary>
     /// Положение игрока
     /// </summary>
     [SerializeField] Transform playerTransform;
@@ -69,12 +79,15 @@ public class WorldScrolling : MonoBehaviour
     /// Метод, вызывающийся каждый кадр. 
     /// </summary>
     private void Update(){
+        // определяем, в каком тайле находимся
         playerTilePosition.x = (int)(playerTransform.position.x / tileSize);
         playerTilePosition.y = (int)(playerTransform.position.y / tileSize);
         
+        // поправка позиции
         playerTilePosition.x -= playerTransform.position.x < 0 ? 1 : 0;
         playerTilePosition.y -= playerTransform.position.y < 0 ? 1 : 0;
 
+        // если игрок перешел на другой тайл
         if (currentTilePosition != playerTilePosition){
             currentTilePosition = playerTilePosition;
 
@@ -89,7 +102,7 @@ public class WorldScrolling : MonoBehaviour
     /// </summary>
     /// <param name="currentValue">Текущая позиция</param>
     /// <param name="horizontal">Перемещение по горизонтали (true/false)</param>
-    /// <returns>Новое положение тайла</returns>
+    /// <returns>Координата</returns>
     private int CalculatePositionOnAxis(float currentValue, bool horizontal){
         if (horizontal){
             if (currentValue >= 0){
