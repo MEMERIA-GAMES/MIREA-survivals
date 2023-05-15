@@ -18,7 +18,7 @@ public class MenuUI : MonoBehaviour
     {
        Debug.Log("Menu is loading...");
        saver.loadData();
-       coinsTotalText.text = "COINS: " + saver.getCoins().ToString();
+       coinsTotalText.text = "лнмерш: " + saver.getCoins().ToString();
        menuCanvas.enabled = true;
        shopCanvas.enabled = false;
     }
@@ -44,5 +44,12 @@ public class MenuUI : MonoBehaviour
     {
         menuCanvas.enabled = false;
         shopCanvas.enabled = true;
+    }
+
+    public void ToMenu()
+    {
+        menuCanvas.enabled = true;
+        shopCanvas.enabled = false;
+        saver.saveData();
     }
 }

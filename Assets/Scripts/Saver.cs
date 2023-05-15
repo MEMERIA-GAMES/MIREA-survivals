@@ -9,14 +9,16 @@ public class Saver : MonoBehaviour
 {
     int coins;
     int weaponLvl;
-    List<string> purchasedCharacters;
+    List<int> purchasedCharacterIds;
+    int selectedCharacterId;
 
     [Serializable]
     class Data
     {
         public int coins;
         public int weaponLvl;
-        public List<string> purchasedCharacters;
+        public List<int> purchasedCharacterIds;
+        public int selectedCharacterId;
     }
 
     void Start()
@@ -33,7 +35,8 @@ public class Saver : MonoBehaviour
         Data data = new Data();
         data.coins = this.coins;
         data.weaponLvl = this.weaponLvl;
-        data.purchasedCharacters = this.purchasedCharacters;
+        data.purchasedCharacterIds = this.purchasedCharacterIds;
+        data.selectedCharacterId = this.selectedCharacterId;
         bf.Serialize(file, data);
         file.Close();
         Debug.Log("Game data saved!");
@@ -51,16 +54,18 @@ public class Saver : MonoBehaviour
             file.Close();
             this.coins = data.coins;
             this.weaponLvl = data.weaponLvl;
-            this.purchasedCharacters = data.purchasedCharacters;
+            this.purchasedCharacterIds = data.purchasedCharacterIds;
+            this.selectedCharacterId = data.selectedCharacterId;
             DateTime endTime = DateTime.Now;
             TimeSpan duration = endTime - startTime;
-            Debug.Log($"Game data loaded in {duration.TotalSeconds}s!");
+            Debug.Log($"Game data loaded ({this.coins}, {this.weaponLvl}, {this.purchasedCharacterIds}, {this.selectedCharacterId}) in {duration.TotalSeconds}s!");
         }
         else
         {
             this.coins = 0;
             this.weaponLvl = 1;
-            List<int> list = new List<int> { 0 };
+            this.purchasedCharacterIds = new List<int> { 0 };
+            this.selectedCharacterId = 0;
             Debug.LogWarning("There is no save data!");
         }
 
@@ -73,7 +78,8 @@ public class Saver : MonoBehaviour
             File.Delete(Application.persistentDataPath + "/MySaveData.dat");
             this.coins = 0;
             this.weaponLvl = 1;
-            this.purchasedCharacters = new List<string> { "spriteshadowless.png" };
+            this.purchasedCharacterIds = new List<int> { 0 };
+            this.selectedCharacterId = 0;
         }
     }
 
@@ -105,5 +111,46 @@ public class Saver : MonoBehaviour
     public int getWeaponLvl()
     {
         return this.weaponLvl;
+    }
+
+    public void buyCharacter(int characterId)
+    {
+        this.purchasedCharacterIds.Add(characterId);
+    }
+
+    public List<int> getPurchasedCharacterIds()
+    {
+        return this.purchasedCharacterIds;
+    }
+
+    public int getSelectedCharacterId()
+    {
+        return this.selectedCharacterId;
+    }
+
+    public void setSelectedCharacterId(int characterId)
+    {
+        this.selectedCharacterId = characterId;
+        Debug.Log($"Current character index is ({this.selectedCharacterId}");
+    }
+
+    public int getSpeed(int characterId)
+    {
+        return characterId + 1;
+    }
+
+    public int getHealth(int characterId)
+    {
+        return (characterId + 1) * 10;
+    }
+
+    public int getCharacterCost(int characterId)
+    {
+        return characterId * 1000;
+    }
+
+    public int getWeaponCost(int weaponLvl)
+    {
+        return weaponLvl * 100;
     }
 }

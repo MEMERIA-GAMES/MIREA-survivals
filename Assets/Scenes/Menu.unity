@@ -493,9 +493,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 731961772}
-        m_TargetAssemblyTypeName: MenuUI, Assembly-CSharp
-        m_MethodName: Play
+      - m_Target: {fileID: 595072744}
+        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
+        m_MethodName: UpgradeWeapon
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1215,11 +1215,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d10d87172b760478f4e1786c881604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saver: {fileID: 0}
-  coinsTotalText: {fileID: 0}
-  weaponAttackText: {fileID: 0}
-  weaponcostText: {fileID: 0}
-  characters: []
+  saver: {fileID: 731961777}
+  coinsTotalText: {fileID: 1638355652}
+  weaponAttackText: {fileID: 904237836}
+  weaponcostText: {fileID: 423811167}
+  characterImage: {fileID: 1130407735}
+  characterSprites:
+  - {fileID: 1744002754, guid: bc7cee38584beab4b93ec59747160882, type: 3}
+  - {fileID: 259246080, guid: bc7cee38584beab4b93ec59747160882, type: 3}
+  currentCharacterId: 0
+  purchasedCharacterIds: 
 --- !u!1 &595102234
 GameObject:
   m_ObjectHideFlags: 0
@@ -1303,9 +1308,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 731961772}
-        m_TargetAssemblyTypeName: MenuUI, Assembly-CSharp
-        m_MethodName: Play
+      - m_Target: {fileID: 595072744}
+        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
+        m_MethodName: ScrollCharactersLeft
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1571,9 +1576,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 731961772}
-        m_TargetAssemblyTypeName: MenuUI, Assembly-CSharp
-        m_MethodName: Play
+      - m_Target: {fileID: 595072744}
+        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
+        m_MethodName: ScrollCharactersRight
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2307,7 +2312,7 @@ GameObject:
   - component: {fileID: 855554843}
   - component: {fileID: 855554842}
   m_Layer: 5
-  m_Name: UpgradeButton (1)
+  m_Name: BuyButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2378,9 +2383,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 731961772}
-        m_TargetAssemblyTypeName: MenuUI, Assembly-CSharp
-        m_MethodName: Play
+      - m_Target: {fileID: 595072744}
+        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
+        m_MethodName: BuyCharacter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3055,7 +3060,7 @@ GameObject:
   - component: {fileID: 1130407736}
   - component: {fileID: 1130407735}
   m_Layer: 5
-  m_Name: Player
+  m_Name: PlayerSelect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3106,7 +3111,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 314074446, guid: bc7cee38584beab4b93ec59747160882, type: 3}
+  m_Sprite: {fileID: 259246080, guid: bc7cee38584beab4b93ec59747160882, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3208,9 +3213,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 731961772}
-        m_TargetAssemblyTypeName: MenuUI, Assembly-CSharp
-        m_MethodName: Play
+      - m_Target: {fileID: 595072744}
+        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
+        m_MethodName: DowngradeWeapon
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

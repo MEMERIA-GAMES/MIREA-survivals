@@ -10,33 +10,112 @@ public class Shop : MonoBehaviour
     public Saver saver;
     public TextMeshProUGUI coinsTotalText;
     public TextMeshProUGUI weaponAttackText;
-    public TextMeshProUGUI weaponcostText;
-    public List<GameObject> characters;
+    public TextMeshProUGUI weaponCostText;
+    public TextMeshProUGUI characterCostText;
+    public TextMeshProUGUI characterStatsText;
+    public Image characterImage;
+    public Button upgradeWeaponButton;
+    public Button downgradeWeaponButton;
+    public Button buyCharacterButton;
+    public List<Sprite> characterSprites;
+    public int currentCharacterId;
+    public int currentCharacterCost;
+    public List<int> purchasedCharacterIds;
+    public int weaponLvl;
+    public int weaponCost;
+    public int coins;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        saver.loadData();
+        currentCharacterId = saver.getSelectedCharacterId();
+        purchasedCharacterIds = saver.getPurchasedCharacterIds();
+        Debug.Log($"{purchasedCharacterIds}!");
+        characterImage.sprite = characterSprites[currentCharacterId];
+        UpdateWeaponInfo();
+        UpdateSelectedCharacter();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    void UpgradeWeapon()
+    void UpdateWeaponInfo()
     {
-        int weaponLvl = saver.getWeaponLvl();
-        saver.removeCoins(weaponLvl * 100);
+        coins = saver.getCoins();
+        weaponLvl = saver.getWeaponLvl();
+        weaponCost = saver.getWeaponCost(weaponLvl);
+        weaponAttackText.text = $"”–ŒÕ {weaponLvl}";
+        weaponCostText.text = $"÷≈Õ¿ {weaponCost}";
+        coinsTotalText.text = $"ÃŒÕ≈“€: {coins}";
+        upgradeWeaponButton.gameObject.SetActive(weaponCost <= coins);
+        downgradeWeaponButton.gameObject.SetActive(weaponLvl > 1);
+    }
+
+    public void UpgradeWeapon()
+    {
+        saver.addCoins(saver.getWeaponCost(weaponLvl));
         saver.upgradeWeapon();
-        coinsTotalText.text = "ÃŒÕ≈“€: " + saver.getCoins().ToString();
+        UpdateWeaponInfo();
     }
 
-    void DowngradeWeapon()
+    public void DowngradeWeapon()
     {
-        int weaponLvl = saver.getWeaponLvl();
-        saver.addCoins(weaponLvl * 100);
+        saver.addCoins(saver.getWeaponCost(weaponLvl - 1));
         saver.downgradeWeapon();
-        coinsTotalText.text = "ÃŒÕ≈“€: " + saver.getCoins().ToString();
+        UpdateWeaponInfo();
+    }
+
+    void UpdateSelectedCharacter()
+    {
+        Debug.Log($"{this.purchasedCharacterIds.Count}");
+        if (purchasedCharacterIds.Contains(currentCharacterId))
+        {
+            saver.setSelectedCharacterId(currentCharacterId);
+        }
+        coins = saver.getCoins();
+        characterImage.sprite = characterSprites[currentCharacterId];
+        currentCharacterCost = saver.getCharacterCost(currentCharacterId);
+        characterCostText.text = !purchasedCharacterIds.Contains(currentCharacterId) ? $"÷≈Õ¿: {currentCharacterCost}" : "";
+        buyCharacterButton.gameObject.SetActive(currentCharacterCost <= coins && !purchasedCharacterIds.Contains(currentCharacterId));
+        coinsTotalText.text = $"ÃŒÕ≈“€: {coins}";
+        characterStatsText.text = $"«ƒŒ–Œ¬‹≈ {saver.getHealth(currentCharacterId)}\n— Œ–Œ—“‹ {saver.getSpeed(currentCharacterId)}";
+    }
+
+    public void BuyCharacter()
+    {
+        saver.buyCharacter(currentCharacterId);
+        saver.removeCoins(currentCharacterCost);
+        UpdateSelectedCharacter();
+        UpdateWeaponInfo();
+    }
+
+    public void ScrollCharactersLeft()
+    {
+        if (currentCharacterId <= 0)
+        {
+            currentCharacterId = characterSprites.Count - 1;
+        }
+        else
+        {
+            currentCharacterId -= 1;
+        }
+        UpdateSelectedCharacter();
+    }
+
+    public void ScrollCharactersRight()
+    {
+        if (currentCharacterId >= characterSprites.Count - 1)
+        {
+            currentCharacterId = 0;
+        }
+        else
+        {
+            currentCharacterId += 1;
+        }
+        UpdateSelectedCharacter();
     }
 }
