@@ -480,11 +480,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeb23bcc8e23b284eb50522ba04ac166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToAttack: 4
+  timeToAttack: 2
   leftWeaponObject: {fileID: 1233112082743890349}
   rightWeaponObject: {fileID: 3568186967615878678}
-  weaponAttackSize: {x: 4, y: 2}
-  weaponDamage: 1
+  weaponAttackSize: {x: 10, y: 10}
+  weaponDamage: 100
 --- !u!1 &3291254985195499243
 GameObject:
   m_ObjectHideFlags: 0
