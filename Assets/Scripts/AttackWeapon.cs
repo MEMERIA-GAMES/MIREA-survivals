@@ -28,12 +28,12 @@ public class Whip : MonoBehaviour
     /// <summary>
     /// Размер атаки
     /// </summary>
-    [SerializeField] Vector2 whipAttackSize = new Vector2(4f, 2f);
+    [SerializeField] Vector2 weaponAttackSize = new Vector2(4f, 2f);
 
     /// <summary>
     /// Урон оружия
     /// </summary>
-    [SerializeField] int whipDamage = 1;
+    [SerializeField] int weaponDamage = 1;
 
     /// <summary>
     /// Метод исполняется при загрузке сцены
@@ -65,11 +65,11 @@ public class Whip : MonoBehaviour
         // Расчет анимации атаки
         if(playerMove.lastHorizontalVector > 0){
             rightWeaponObject.SetActive(true);
-            Collider2D[] colliders = Physics2D.OverlapBoxAll(rightWeaponObject.transform.position, whipAttackSize, 0f);
+            Collider2D[] colliders = Physics2D.OverlapBoxAll(rightWeaponObject.transform.position, weaponAttackSize, 0f);
             ApplyDamage(colliders);
         }else{
             leftWeaponObject.SetActive(true);
-            Collider2D[] colliders = Physics2D.OverlapBoxAll(leftWeaponObject.transform.position, whipAttackSize, 0f);
+            Collider2D[] colliders = Physics2D.OverlapBoxAll(leftWeaponObject.transform.position, weaponAttackSize, 0f);
             ApplyDamage(colliders);
         }
     }
@@ -85,7 +85,7 @@ public class Whip : MonoBehaviour
             IDamagable e = colliders[i].GetComponent<IDamagable>();
             if (e != null){
                 // Нанесение урона
-                e.TakeDamage(whipDamage);
+                e.TakeDamage(weaponDamage);
             }
         }
     }

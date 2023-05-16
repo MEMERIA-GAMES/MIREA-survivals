@@ -16,30 +16,44 @@ public class Character : MonoBehaviour
     /// Текущее здоровье
     /// </summary>
     public int currentHP;
+    
+    /// <summary>
+    /// Список спрайтов
+    /// </summary>
+    public List<string> spritesList;
 
     public Saver saver;
     public UI ui;
     public int coinsCollected = 0;
     public int characterId;
-    public SpriteRenderer sprite;
+    public Animator spriteAnimator;
     /// <summary>
     /// Объект ХП-бара
     /// </summary>
     [SerializeField] StatusBar hpBar;
 
     private void Start(){
+        saver.loadData();
         hpBar.SetState(currentHP, maxHP);
         ui.coinsCollectedText.text = "МОНЕТЫ: " + coinsCollected.ToString();
         characterId = saver.getSelectedCharacterId();
-        if (characterId == 1)
-        {
-            sprite.color = new Color(0.7f, 0.7f, 0, 1);
-
-        }
+        Debug.Log("CharacterId " + characterId);
+        Debug.Log("List " + spritesList);
+        Debug.Log("Path " + spritesList[characterId]);
+        spriteAnimator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>(spritesList[characterId]);
         maxHP = saver.getHealth(characterId);
         currentHP = maxHP;
+        spriteAnimator.Play("Entry", 0, 0);
         //saver.addCoins(1000);
 
+    }
+
+    private void Awake(){
+        saver.loadData();
+        characterId = saver.getSelectedCharacterId();
+        spriteAnimator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>(spritesList[characterId]);
+        Debug.Log("Awake " + characterId);
+        spriteAnimator.Play("Entry", 0, 0);
     }
 
     /// <summary>

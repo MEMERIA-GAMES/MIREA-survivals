@@ -107,7 +107,49 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: kot_8_0
+      name: kot_8_reverse_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5c43edfc6870ec43b6ddff934090d0e
+      internalID: -1127242567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kot_8_reverse_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6cae8c45d9212a4b8c632d464909801
+      internalID: -648781641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kot_8_reverse_2
       rect:
         serializedVersion: 2
         x: 0
@@ -121,14 +163,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d44586bd1a6f14445b2d03b8d2b53ff4
-      internalID: -13629612
+      spriteID: 120c5a087410ca14496169230950b6bc
+      internalID: 682758382
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kot_8_1
+      name: kot_8_reverse_3
       rect:
         serializedVersion: 2
         x: 32
@@ -142,8 +184,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6ba0a2445a7ba44bbdfc5defd9a56c4
-      internalID: -1133593275
+      spriteID: 544fe3e0163ab44438d4e7c6af77dbb5
+      internalID: 282633597
       vertices: []
       indices: 
       edges: []
@@ -159,8 +201,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      kot_8_0: -13629612
-      kot_8_1: -1133593275
+      kot_8_reverse_0: -1127242567
+      kot_8_reverse_1: -648781641
+      kot_8_reverse_2: 682758382
+      kot_8_reverse_3: 282633597
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -80,6 +80,7 @@ public class Saver : MonoBehaviour
             this.weaponLvl = 1;
             this.purchasedCharacterIds = new List<int> { 0 };
             this.selectedCharacterId = 0;
+            Debug.Log("Data has been deleted");
         }
     }
 

@@ -45,7 +45,7 @@ public class MenuUI : MonoBehaviour
     public void PlayLevel3()
     {
         Debug.Log("Третьего уровня не существует. Это все выдумки. Оставь эту затею.");
-        //SceneManager.LoadScene(gameSceneName[0]);
+        //SceneManager.LoadScene(gameSceneName[2]);
     }
 
 

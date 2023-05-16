@@ -31,7 +31,6 @@ public class Shop : MonoBehaviour
         saver.loadData();
         currentCharacterId = saver.getSelectedCharacterId();
         purchasedCharacterIds = saver.getPurchasedCharacterIds();
-        Debug.Log($"{purchasedCharacterIds}!");
         characterImage.sprite = characterSprites[currentCharacterId];
         UpdateWeaponInfo();
         UpdateSelectedCharacter();
@@ -45,6 +44,7 @@ public class Shop : MonoBehaviour
 
     void UpdateWeaponInfo()
     {
+        saver.loadData();
         coins = saver.getCoins();
         weaponLvl = saver.getWeaponLvl();
         weaponCost = saver.getWeaponCost(weaponLvl);
@@ -75,6 +75,8 @@ public class Shop : MonoBehaviour
         if (purchasedCharacterIds.Contains(currentCharacterId))
         {
             saver.setSelectedCharacterId(currentCharacterId);
+            saver.saveData();
+            saver.loadData();
         }
         coins = saver.getCoins();
         characterImage.sprite = characterSprites[currentCharacterId];
@@ -83,14 +85,6 @@ public class Shop : MonoBehaviour
         buyCharacterButton.gameObject.SetActive(currentCharacterCost <= coins && !purchasedCharacterIds.Contains(currentCharacterId));
         coinsTotalText.text = $"ÌÎÍÅÒÛ: {coins}";
         characterStatsText.text = $"ÇÄÎÐÎÂÜÅ {saver.getHealth(currentCharacterId)}\nÑÊÎÐÎÑÒÜ {saver.getSpeed(currentCharacterId)}";
-        if (currentCharacterId == 1)
-        {
-            characterImage.color = new Color(0.7f, 0.7f, 0, 1);
-        }
-        else
-        {
-            characterImage.color = new Color(1, 1, 1, 1);
-        }
     }
 
     public void BuyCharacter()

@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour, IDamagable
     /// </summary>
     GameObject targetGameobject;
     Character targetCharacter;
+
     
     /// <summary>
     /// Величина скорости
