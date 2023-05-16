@@ -36,10 +36,12 @@ public class Shop : MonoBehaviour
         UpdateSelectedCharacter();
     }
 
-    // Update is called once per frame
-    void Update()
+    // Обновить всю инфу
+    private void Update()
     {
-
+        purchasedCharacterIds = saver.getPurchasedCharacterIds();
+        coins = saver.getCoins();
+        coinsTotalText.text = $"МОНЕТЫ: {coins}";
     }
 
     void UpdateWeaponInfo()
@@ -71,7 +73,6 @@ public class Shop : MonoBehaviour
 
     void UpdateSelectedCharacter()
     {
-        Debug.Log($"{this.purchasedCharacterIds.Count}");
         if (purchasedCharacterIds.Contains(currentCharacterId))
         {
             saver.setSelectedCharacterId(currentCharacterId);

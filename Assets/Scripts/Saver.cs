@@ -116,7 +116,10 @@ public class Saver : MonoBehaviour
 
     public void buyCharacter(int characterId)
     {
+        Debug.Log("Buy character " + characterId);
+        Debug.Log(this.purchasedCharacterIds);
         this.purchasedCharacterIds.Add(characterId);
+        Debug.Log(this.purchasedCharacterIds);
     }
 
     public List<int> getPurchasedCharacterIds()
