@@ -1997,6 +1997,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -3385,6 +3386,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -4678,6 +4680,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -5431,6 +5434,10 @@ PrefabInstance:
       propertyPath: characterId
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1278151483203628431, guid: 19a3bf62b684b24448f0ca9363ea7bd9, type: 3}
+      propertyPath: newController
+      value: 
+      objectReference: {fileID: 9100000, guid: e875b823654a3f548b8e5ba729a518ef, type: 2}
     - target: {fileID: 1278151483203628431, guid: 19a3bf62b684b24448f0ca9363ea7bd9, type: 3}
       propertyPath: spriteAnimator
       value: 

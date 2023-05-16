@@ -6,7 +6,7 @@ using UnityEngine;
 /// Класс игрового персонажа
 /// </summary>
 public class Character : MonoBehaviour
-{
+{   
     /// <summary>
     /// Максимальное здоровье
     /// </summary>
@@ -20,7 +20,7 @@ public class Character : MonoBehaviour
     /// <summary>
     /// Список спрайтов
     /// </summary>
-    public List<string> spritesList;
+    public List<RuntimeAnimatorController> spritesList;
 
     public Saver saver;
     public UI ui;
@@ -37,10 +37,7 @@ public class Character : MonoBehaviour
         hpBar.SetState(currentHP, maxHP);
         ui.coinsCollectedText.text = "МОНЕТЫ: " + coinsCollected.ToString();
         characterId = saver.getSelectedCharacterId();
-        Debug.Log("CharacterId " + characterId);
-        Debug.Log("List " + spritesList);
-        Debug.Log("Path " + spritesList[characterId]);
-        spriteAnimator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>(spritesList[characterId]);
+        spriteAnimator.runtimeAnimatorController = spritesList[characterId];
         maxHP = saver.getHealth(characterId);
         currentHP = maxHP;
         spriteAnimator.Play("Entry", 0, 0);
@@ -48,13 +45,6 @@ public class Character : MonoBehaviour
 
     }
 
-    private void Awake(){
-        saver.loadData();
-        characterId = saver.getSelectedCharacterId();
-        spriteAnimator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>(spritesList[characterId]);
-        Debug.Log("Awake " + characterId);
-        spriteAnimator.Play("Entry", 0, 0);
-    }
 
     /// <summary>
     /// Получить урон. Вычитает урон из текущего здоровья

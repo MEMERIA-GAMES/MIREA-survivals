@@ -414,8 +414,8 @@ MonoBehaviour:
   maxHP: 50
   currentHP: 50
   spritesList:
-  - Assets/Animations/PlayerSprite1/PlayerAnimationController.controller
-  - Assets/Animations/PlayerSprite2/PlayerAnimationController.controller
+  - {fileID: 9100000, guid: e875b823654a3f548b8e5ba729a518ef, type: 2}
+  - {fileID: 9100000, guid: b38788c4eec5b0b46baad966532799e4, type: 2}
   saver: {fileID: 0}
   ui: {fileID: 0}
   coinsCollected: 0
