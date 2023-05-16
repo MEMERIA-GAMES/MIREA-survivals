@@ -59,6 +59,12 @@ public class Enemy : MonoBehaviour, IDamagable
     private void FixedUpdate(){
         Vector3 direction = (targetDestination.position - transform.position).normalized;
         rgdbd2d.velocity = direction * speed;
+        if ((rgdbd2d.velocity.x < 0 && transform.localScale.x < 0) || (rgdbd2d.velocity.x > 0 && transform.localScale.x > 0))
+        {
+            Vector3 newScale = transform.localScale;
+            newScale.x = -newScale.x;
+            transform.localScale = newScale;
+        }
     }
 
     /// <summary>
