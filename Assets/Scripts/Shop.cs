@@ -39,9 +39,7 @@ public class Shop : MonoBehaviour
     // Обновить всю инфу
     private void Update()
     {
-        purchasedCharacterIds = saver.getPurchasedCharacterIds();
-        coins = saver.getCoins();
-        coinsTotalText.text = $"МОНЕТЫ: {coins}";
+
     }
 
     void UpdateWeaponInfo()
@@ -61,6 +59,7 @@ public class Shop : MonoBehaviour
     {
         saver.removeCoins(saver.getWeaponCost(weaponLvl));
         saver.upgradeWeapon();
+        saver.saveData();
         UpdateWeaponInfo();
     }
 
@@ -68,16 +67,17 @@ public class Shop : MonoBehaviour
     {
         saver.addCoins(saver.getWeaponCost(weaponLvl - 1));
         saver.downgradeWeapon();
+        saver.saveData();
         UpdateWeaponInfo();
     }
 
     void UpdateSelectedCharacter()
     {
+        purchasedCharacterIds = saver.getPurchasedCharacterIds();
         if (purchasedCharacterIds.Contains(currentCharacterId))
         {
             saver.setSelectedCharacterId(currentCharacterId);
             saver.saveData();
-            saver.loadData();
         }
         coins = saver.getCoins();
         characterImage.sprite = characterSprites[currentCharacterId];
@@ -92,6 +92,7 @@ public class Shop : MonoBehaviour
     {
         saver.buyCharacter(currentCharacterId);
         saver.removeCoins(currentCharacterCost);
+        saver.saveData();
         UpdateSelectedCharacter();
         UpdateWeaponInfo();
     }
