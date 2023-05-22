@@ -1842,6 +1842,7 @@ MonoBehaviour:
   characterSprites:
   - {fileID: 1744002754, guid: bc7cee38584beab4b93ec59747160882, type: 3}
   - {fileID: -2081327083, guid: ebf42cc69c81742468c8ebb7929d67a5, type: 3}
+  - {fileID: 1994074826, guid: 0c29ae01665668a43ba70615c830bfe9, type: 3}
   currentCharacterId: 0
   currentCharacterCost: 0
   purchasedCharacterIds: 0000000001000000

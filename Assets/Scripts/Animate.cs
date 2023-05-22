@@ -16,7 +16,9 @@ public class Animate : MonoBehaviour
     /// <summary>
     /// Скорость по горизонтали
     /// </summary>
-    public float horizontal;
+    public float oldHorizontal = 0f, horizontal = 0f;
+    public float oldVertical = 0f, vertical = 0f;
+
 
     private void Awake()
     {
@@ -25,6 +27,13 @@ public class Animate : MonoBehaviour
 
     private void Update()
     {
-        animator.SetFloat("Horizontal", horizontal);
+        // изменение в горизонтальной скорости
+        if (oldHorizontal != horizontal)
+            animator.SetFloat("Horizontal", horizontal);
+        if (oldVertical != vertical)
+            animator.SetFloat("Vertical", horizontal);
+        oldHorizontal = horizontal;
+        oldVertical = vertical;
     }
+
 }

@@ -52,8 +52,9 @@ public class PlayerMove : MonoBehaviour
             lastVerticalVector = movementVector.y;
         }
 
-        // Передаем направление в аниматор для настройки подходящей анимации
+        // Передаем направление в анимейт для настройки подходящей анимации
         animate.horizontal = movementVector.x;
+        animate.vertical = movementVector.y;
 
         // умножаем вектор направления на скорость
         movementVector *= speed;
