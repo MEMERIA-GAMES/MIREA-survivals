@@ -1997,7 +1997,6 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -3386,7 +3385,6 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -4680,7 +4678,6 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -5446,6 +5443,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCharacter
       objectReference: {fileID: 0}
+    - target: {fileID: 1887865845313592901, guid: 19a3bf62b684b24448f0ca9363ea7bd9, type: 3}
+      propertyPath: weaponDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887865845313592901, guid: 19a3bf62b684b24448f0ca9363ea7bd9, type: 3}
+      propertyPath: weaponAttackSize.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887865845313592901, guid: 19a3bf62b684b24448f0ca9363ea7bd9, type: 3}
+      propertyPath: weaponAttackSize.y
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2362887213511865185, guid: 19a3bf62b684b24448f0ca9363ea7bd9, type: 3}
       propertyPath: m_Controller
       value: 
@@ -5494,8 +5503,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8282882186072443273, guid: 19a3bf62b684b24448f0ca9363ea7bd9, type: 3}
+      propertyPath: saver
+      value: 
+      objectReference: {fileID: 1923396374}
+    - target: {fileID: 8396379456017932024, guid: 19a3bf62b684b24448f0ca9363ea7bd9, type: 3}
+      propertyPath: saver
+      value: 
+      objectReference: {fileID: 1923396374}
+    - target: {fileID: 8396379456017932024, guid: 19a3bf62b684b24448f0ca9363ea7bd9, type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2312136964592360079, guid: 19a3bf62b684b24448f0ca9363ea7bd9, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19a3bf62b684b24448f0ca9363ea7bd9, type: 3}

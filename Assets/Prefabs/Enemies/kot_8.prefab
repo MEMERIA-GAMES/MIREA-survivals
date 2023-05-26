@@ -122,9 +122,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  hp: 15
+  hp: 100
   damage: 1
-  coinWorth: 1
+  coinWorth: 2
   dropObj: {fileID: 3407059006219355343, guid: b05cf8fff3092134f8950985ec1bfb83, type: 3}
 --- !u!50 &4454572197495710381
 Rigidbody2D:

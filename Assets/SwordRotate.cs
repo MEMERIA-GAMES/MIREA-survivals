@@ -32,10 +32,18 @@ public class SwordRotate : MonoBehaviour
     /// <summary>
     /// Урон оружия
     /// </summary>
-    [SerializeField] int weaponDamage = 1;
+    [SerializeField] int baseDamage = 1;
 
     [SerializeField] float rotationPerFrame = 2f;
+    public Saver saver;
+    public int weaponDamage;
 
+    public void Start()
+    {
+        saver.loadData();
+        weaponDamage = baseDamage * saver.getWeaponLvl();
+    }
+    
     /// <summary>
     /// Метод исполняется при загрузке сцены
     /// </summary>

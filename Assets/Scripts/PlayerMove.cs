@@ -23,12 +23,21 @@ public class PlayerMove : MonoBehaviour
     /// <summary>
     /// Величина скорости
     /// </summary>
-    [SerializeField] float speed = 3f;
+    [SerializeField] float baseSpeed = 3f;
+    float speed;
 
     /// <summary>
     /// Объект аниматора
     /// </summary>
     Animate animate;
+    public Saver saver;
+
+    private void Start()
+    {
+        saver.loadData();
+        speed = saver.getSpeed(saver.getSelectedCharacterId()) * baseSpeed;
+    }
+
 
     private void Awake()
     {

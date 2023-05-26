@@ -3454,6 +3454,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8282882186072443273, guid: 19a3bf62b684b24448f0ca9363ea7bd9, type: 3}
+      propertyPath: saver
+      value: 
+      objectReference: {fileID: 1923396374}
+    - target: {fileID: 8282882186072443273, guid: 19a3bf62b684b24448f0ca9363ea7bd9, type: 3}
       propertyPath: weaponDamage
       value: 3
       objectReference: {fileID: 0}
@@ -3461,6 +3465,10 @@ PrefabInstance:
       propertyPath: rotationPerFrame
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8396379456017932024, guid: 19a3bf62b684b24448f0ca9363ea7bd9, type: 3}
+      propertyPath: saver
+      value: 
+      objectReference: {fileID: 1923396374}
     - target: {fileID: 9063100771706708259, guid: 19a3bf62b684b24448f0ca9363ea7bd9, type: 3}
       propertyPath: m_Enabled
       value: 0
